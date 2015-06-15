@@ -1,4 +1,4 @@
-# loveshawa
+# iLoveShawa
 find your ideal shawarma
 
 Функционал:
