@@ -4,17 +4,54 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище iloveshawaModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="Хранилище iloveshawaModelContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="iloveshawaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="iloveshawaModelStoreContainer">
+    <EntitySet Name="Entity1Set" EntityType="iloveshawaModel.Store.Entity1Set" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entity2Set" EntityType="iloveshawaModel.Store.Entity2Set" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entity3Set" EntityType="iloveshawaModel.Store.Entity3Set" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Entity1Set">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entity2Set">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Property1" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entity3Set">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="iloveshawaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="testSet" EntityType="iloveshawaModel.test" />
+          <EntitySet Name="Entity1Set" EntityType="iloveshawaModel.Entity1" />
+          <EntitySet Name="Entity2Set" EntityType="iloveshawaModel.Entity2" />
+          <EntitySet Name="Entity3Set" EntityType="iloveshawaModel.Entity3" />
         </EntityContainer>
-        <EntityType Name="test">
+        <EntityType Name="Entity1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Entity2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Property1" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity3">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -24,10 +61,32 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище iloveshawaModelContainer" CdmEntityContainer="Entities" />
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="iloveshawaModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Entity1Set">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Entity1)">
+        <MappingFragment StoreEntitySet="Entity1Set">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entity2Set">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Entity2)">
+        <MappingFragment StoreEntitySet="Entity2Set">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Property1" ColumnName="Property1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entity3Set">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Entity3)">
+        <MappingFragment StoreEntitySet="Entity3Set">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -41,8 +100,9 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
