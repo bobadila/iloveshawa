@@ -26,7 +26,7 @@ public partial class image
 
 
 
-    public virtual shawarma_shop shawarma_shop { get; set; }
+    public virtual shawa_shop shawa_shop { get; set; }
 
 }
 

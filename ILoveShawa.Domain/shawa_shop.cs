@@ -15,18 +15,18 @@ namespace ILoveShawa.Domain
 using System;
     using System.Collections.Generic;
     
-public partial class shawarma_shop
+public partial class shawa_shop
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public shawarma_shop()
+    public shawa_shop()
     {
 
-        this.image = new HashSet<image>();
+        this.images = new HashSet<image>();
 
-        this.review = new HashSet<review>();
+        this.reviews = new HashSet<review>();
 
-        this.score = new HashSet<score>();
+        this.scores = new HashSet<score>();
 
     }
 
@@ -39,15 +39,15 @@ public partial class shawarma_shop
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<image> image { get; set; }
+    public virtual ICollection<image> images { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<review> review { get; set; }
+    public virtual ICollection<review> reviews { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<score> score { get; set; }
+    public virtual ICollection<score> scores { get; set; }
 
 }
 

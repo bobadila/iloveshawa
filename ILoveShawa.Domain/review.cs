@@ -30,7 +30,7 @@ public partial class review
 
 
 
-    public virtual shawarma_shop shawarma_shop { get; set; }
+    public virtual shawa_shop shawa_shop { get; set; }
 
     public virtual user user { get; set; }
 

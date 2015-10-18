@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="iloveshawaModel.like" Width="1.5" PointX="3" PointY="10.25" />
         <EntityTypeShape EntityType="iloveshawaModel.review" Width="1.5" PointX="3" PointY="4" />
         <EntityTypeShape EntityType="iloveshawaModel.score" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="iloveshawaModel.shawarma_shop" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="iloveshawaModel.shawa_shop" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="iloveshawaModel.user" Width="1.5" PointX="0.75" PointY="4" />
         <AssociationConnector Association="iloveshawaModel.fk_image_shawarma_shop1" />
         <AssociationConnector Association="iloveshawaModel.fk_like_user1" />

@@ -32,17 +32,17 @@ public partial class Entities : DbContext
     }
 
 
-    public virtual DbSet<image> image { get; set; }
+    public virtual DbSet<image> images { get; set; }
 
-    public virtual DbSet<like> like { get; set; }
+    public virtual DbSet<like> likes { get; set; }
 
-    public virtual DbSet<review> review { get; set; }
+    public virtual DbSet<review> reviews { get; set; }
 
-    public virtual DbSet<score> score { get; set; }
+    public virtual DbSet<score> scores { get; set; }
 
-    public virtual DbSet<shawarma_shop> shawarma_shop { get; set; }
+    public virtual DbSet<shawa_shop> shawa_shop { get; set; }
 
-    public virtual DbSet<user> user { get; set; }
+    public virtual DbSet<user> users { get; set; }
 
 }
 

@@ -22,11 +22,11 @@ public partial class user
     public user()
     {
 
-        this.like = new HashSet<like>();
+        this.likes = new HashSet<like>();
 
-        this.review = new HashSet<review>();
+        this.reviews = new HashSet<review>();
 
-        this.score = new HashSet<score>();
+        this.scores = new HashSet<score>();
 
     }
 
@@ -43,15 +43,15 @@ public partial class user
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<like> like { get; set; }
+    public virtual ICollection<like> likes { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<review> review { get; set; }
+    public virtual ICollection<review> reviews { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<score> score { get; set; }
+    public virtual ICollection<score> scores { get; set; }
 
 }
 
