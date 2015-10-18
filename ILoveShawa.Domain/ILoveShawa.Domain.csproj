@@ -90,7 +90,7 @@
     <Compile Include="score.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="shawa_shop.cs">
+    <Compile Include="shawashop.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="user.cs">
@@ -117,6 +117,7 @@
       <DependentUpon>ILoveShawaModel.edmx</DependentUpon>
       <LastGenOutput>ILoveShawaModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="ILoveShawaModel.edmx.sql" />
     <Content Include="ILoveShawaModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ILoveShawaModel.edmx</DependentUpon>
