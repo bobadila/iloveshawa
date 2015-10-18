@@ -5,9 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8910a286bf284903aec9e113fb5d86a2" Name="Diagram1" >
-        <EntityTypeShape EntityType="iloveshawaModel.Entity1" Width="1.5" PointX="5.125" PointY="1.375" />
-        <EntityTypeShape EntityType="iloveshawaModel.Entity2" Width="1.5" PointX="3.5" PointY="3.5" />
-        <EntityTypeShape EntityType="iloveshawaModel.Entity3" Width="1.5" PointX="9.625" PointY="1.625" />
+        <EntityTypeShape EntityType="iloveshawaModel.image" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="iloveshawaModel.like" Width="1.5" PointX="3" PointY="10.25" />
+        <EntityTypeShape EntityType="iloveshawaModel.review" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="iloveshawaModel.score" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="iloveshawaModel.shawarma_shop" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="iloveshawaModel.user" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="iloveshawaModel.fk_image_shawarma_shop1" />
+        <AssociationConnector Association="iloveshawaModel.fk_like_user1" />
+        <AssociationConnector Association="iloveshawaModel.fk_review_shawarma_shop1" />
+        <AssociationConnector Association="iloveshawaModel.fk_review_user1" />
+        <AssociationConnector Association="iloveshawaModel.fk_score_shawarma_shop1" />
+        <AssociationConnector Association="iloveshawaModel.fk_score_user1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
