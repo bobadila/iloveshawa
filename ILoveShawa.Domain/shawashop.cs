@@ -15,11 +15,11 @@ namespace ILoveShawa.Domain
 using System;
     using System.Collections.Generic;
     
-public partial class shawa_shop
+public partial class shawashop
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public shawa_shop()
+    public shawashop()
     {
 
         this.images = new HashSet<image>();
@@ -34,6 +34,8 @@ public partial class shawa_shop
     public int id { get; set; }
 
     public string name { get; set; }
+
+    public string coordinates { get; set; }
 
 
 

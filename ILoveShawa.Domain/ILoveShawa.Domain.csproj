@@ -90,7 +90,7 @@
     <Compile Include="score.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="shawarma_shop.cs">
+    <Compile Include="shawa_shop.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="user.cs">

@@ -40,7 +40,7 @@ public partial class Entities : DbContext
 
     public virtual DbSet<score> scores { get; set; }
 
-    public virtual DbSet<shawa_shop> shawa_shop { get; set; }
+    public virtual DbSet<shawashop> shawashops { get; set; }
 
     public virtual DbSet<user> users { get; set; }
 

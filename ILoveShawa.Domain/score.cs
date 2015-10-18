@@ -28,7 +28,7 @@ public partial class score
 
 
 
-    public virtual shawa_shop shawa_shop { get; set; }
+    public virtual shawashop shawashop { get; set; }
 
     public virtual user user { get; set; }
 

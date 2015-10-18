@@ -26,6 +26,8 @@ public partial class like
 
 
 
+    public virtual review review { get; set; }
+
     public virtual user user { get; set; }
 
 }

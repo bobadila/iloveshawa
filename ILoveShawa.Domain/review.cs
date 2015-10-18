@@ -18,6 +18,15 @@ using System;
 public partial class review
 {
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public review()
+    {
+
+        this.likes = new HashSet<like>();
+
+    }
+
+
     public int id { get; set; }
 
     public string text { get; set; }
@@ -30,7 +39,11 @@ public partial class review
 
 
 
-    public virtual shawa_shop shawa_shop { get; set; }
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<like> likes { get; set; }
+
+    public virtual shawashop shawashop { get; set; }
 
     public virtual user user { get; set; }
 
