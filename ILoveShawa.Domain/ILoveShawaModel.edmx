@@ -181,7 +181,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="iloveshawaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true" >
+        <EntityContainer Name="ILoveShawaContainer" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="images" EntityType="iloveshawaModel.image" />
           <EntitySet Name="likes" EntityType="iloveshawaModel.like" />
           <EntitySet Name="reviews" EntityType="iloveshawaModel.review" />
@@ -372,7 +372,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="iloveshawaModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="iloveshawaModelStoreContainer" CdmEntityContainer="ILoveShawaContainer">
           <EntitySetMapping Name="images">
             <EntityTypeMapping TypeName="iloveshawaModel.image">
               <MappingFragment StoreEntitySet="image">

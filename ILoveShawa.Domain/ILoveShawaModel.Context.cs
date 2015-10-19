@@ -18,9 +18,9 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
 
-public partial class Entities : DbContext
+public partial class ILoveShawaContainer : DbContext
 {
-    public Entities()
+    public ILoveShawaContainer()
         : base("name=Entities")
     {
 
