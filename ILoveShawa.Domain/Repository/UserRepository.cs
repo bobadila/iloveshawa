@@ -29,7 +29,7 @@ namespace ILoveShawa.Domain.Repository
         {
             using (var container = new ILoveShawaContainer())
             {
-                return container.Users;
+                return container.Users.ToList();
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ILoveShawa.Domain.IRepository;
+using System.Data.Entity;
 
 namespace ILoveShawa.Domain.Repository
 {
@@ -21,7 +22,7 @@ namespace ILoveShawa.Domain.Repository
         {
             using (var container = new ILoveShawaContainer())
             {
-                return container.ShawaShops;
+                return container.ShawaShops.ToList();
             }
         }
 
@@ -29,7 +30,7 @@ namespace ILoveShawa.Domain.Repository
         {
             using (var container = new ILoveShawaContainer())
             {
-                return container.ShawaShops.Where(x => condition(x));
+                return container.ShawaShops.Where(x => condition(x)).ToList();
             }
         }
 
