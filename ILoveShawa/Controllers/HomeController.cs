@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ILoveShawa.Domain.IRepository;
 
 namespace ILoveShawa.Controllers
@@ -17,8 +13,7 @@ namespace ILoveShawa.Controllers
 
         public ActionResult Index()
         {
-            var h = shawaShopRepository.GetShawaShops().Count();
-            return View();
+            return View(shawaShopRepository.GetShawaShops());
         }
 
         public ActionResult About()
