@@ -77,23 +77,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ILoveShawaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="image.cs">
+    <Compile Include="Image.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="like.cs">
+    <Compile Include="IRepository\IShawaShopRepository.cs" />
+    <Compile Include="IRepository\IUserRepository.cs" />
+    <Compile Include="Like.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="review.cs">
+    <Compile Include="Repository\ShawaShopRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Review.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="score.cs">
+    <Compile Include="Score.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="shawashop.cs">
+    <Compile Include="ShawaShop.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="user.cs">
+    <Compile Include="User.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -4,220 +4,220 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="iloveshawaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="image">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="url" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="shop_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="like">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="review_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="review">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="text" Type="longtext" Nullable="false" />
-          <Property Name="positive" Type="bool" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="shop_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="score">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="value" Type="int" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="shop_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="shawashop">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="coordinates" Type="varchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="image_url" Type="varchar" MaxLength="45" />
-          <Property Name="email" Type="varchar" MaxLength="45" Nullable="false" />
-        </EntityType>
-        <Association Name="fk_image_shawarma_shop1">
-          <End Role="shawashop" Type="Self.shawashop" Multiplicity="1" />
-          <End Role="image" Type="Self.image" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shawashop">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="image">
-              <PropertyRef Name="shop_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_like_review1">
-          <End Role="review" Type="Self.review" Multiplicity="1" />
-          <End Role="like" Type="Self.like" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="review">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="like">
-              <PropertyRef Name="review_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_like_user1">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="like" Type="Self.like" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="like">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_review_shawarma_shop1">
-          <End Role="shawashop" Type="Self.shawashop" Multiplicity="1" />
-          <End Role="review" Type="Self.review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shawashop">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="review">
-              <PropertyRef Name="shop_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_review_user1">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="review" Type="Self.review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="review">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_score_shawarma_shop1">
-          <End Role="shawashop" Type="Self.shawashop" Multiplicity="1" />
-          <End Role="score" Type="Self.score" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shawashop">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="score">
-              <PropertyRef Name="shop_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_score_user1">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="score" Type="Self.score" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="score">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="iloveshawaModelStoreContainer">
-          <EntitySet Name="image" EntityType="Self.image" Schema="iloveshawa" store:Type="Tables" />
-          <EntitySet Name="like" EntityType="Self.like" Schema="iloveshawa" store:Type="Tables" />
-          <EntitySet Name="review" EntityType="Self.review" Schema="iloveshawa" store:Type="Tables" />
-          <EntitySet Name="score" EntityType="Self.score" Schema="iloveshawa" store:Type="Tables" />
-          <EntitySet Name="shawashop" EntityType="Self.shawashop" Schema="iloveshawa" store:Type="Tables" />
-          <EntitySet Name="user" EntityType="Self.user" Schema="iloveshawa" store:Type="Tables" />
-          <AssociationSet Name="fk_image_shawarma_shop1" Association="Self.fk_image_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashop" />
-            <End Role="image" EntitySet="image" />
-          </AssociationSet>
-          <AssociationSet Name="fk_like_review1" Association="Self.fk_like_review1">
-            <End Role="review" EntitySet="review" />
-            <End Role="like" EntitySet="like" />
-          </AssociationSet>
-          <AssociationSet Name="fk_like_user1" Association="Self.fk_like_user1">
-            <End Role="user" EntitySet="user" />
-            <End Role="like" EntitySet="like" />
-          </AssociationSet>
-          <AssociationSet Name="fk_review_shawarma_shop1" Association="Self.fk_review_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashop" />
-            <End Role="review" EntitySet="review" />
-          </AssociationSet>
-          <AssociationSet Name="fk_review_user1" Association="Self.fk_review_user1">
-            <End Role="user" EntitySet="user" />
-            <End Role="review" EntitySet="review" />
-          </AssociationSet>
-          <AssociationSet Name="fk_score_shawarma_shop1" Association="Self.fk_score_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashop" />
-            <End Role="score" EntitySet="score" />
-          </AssociationSet>
-          <AssociationSet Name="fk_score_user1" Association="Self.fk_score_user1">
-            <End Role="user" EntitySet="user" />
-            <End Role="score" EntitySet="score" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="iloveshawaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="iloveshawaModelStoreContainer">
+    <EntitySet Name="Images1" EntityType="iloveshawaModel.Store.Images1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Likes1" EntityType="iloveshawaModel.Store.Likes1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reviews1" EntityType="iloveshawaModel.Store.Reviews1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Scores1" EntityType="iloveshawaModel.Store.Scores1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShawaShops1" EntityType="iloveshawaModel.Store.ShawaShops1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users1" EntityType="iloveshawaModel.Store.Users1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_image_shawarma_shop1" Association="iloveshawaModel.Store.fk_image_shawarma_shop1">
+      <End Role="shawashop" EntitySet="ShawaShops1" />
+      <End Role="image" EntitySet="Images1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_like_review1" Association="iloveshawaModel.Store.fk_like_review1">
+      <End Role="review" EntitySet="Reviews1" />
+      <End Role="like" EntitySet="Likes1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_like_user1" Association="iloveshawaModel.Store.fk_like_user1">
+      <End Role="user" EntitySet="Users1" />
+      <End Role="like" EntitySet="Likes1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_shawarma_shop1" Association="iloveshawaModel.Store.fk_review_shawarma_shop1">
+      <End Role="shawashop" EntitySet="ShawaShops1" />
+      <End Role="review" EntitySet="Reviews1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_user1" Association="iloveshawaModel.Store.fk_review_user1">
+      <End Role="user" EntitySet="Users1" />
+      <End Role="review" EntitySet="Reviews1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_score_shawarma_shop1" Association="iloveshawaModel.Store.fk_score_shawarma_shop1">
+      <End Role="shawashop" EntitySet="ShawaShops1" />
+      <End Role="score" EntitySet="Scores1" />
+    </AssociationSet>
+    <AssociationSet Name="fk_score_user1" Association="iloveshawaModel.Store.fk_score_user1">
+      <End Role="user" EntitySet="Users1" />
+      <End Role="score" EntitySet="Scores1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Images1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Likes1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="review_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reviews1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="text" Type="longtext" Nullable="false" />
+    <Property Name="positive" Type="bool" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scores1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="value" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShawaShops1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="coordinates" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Users1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="image_url" Type="varchar" Nullable="true" MaxLength="45" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <Association Name="fk_image_shawarma_shop1">
+    <End Role="shawashop" Type="iloveshawaModel.Store.ShawaShops1" Multiplicity="1" />
+    <End Role="image" Type="iloveshawaModel.Store.Images1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shawashop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="image">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_like_review1">
+    <End Role="review" Type="iloveshawaModel.Store.Reviews1" Multiplicity="1" />
+    <End Role="like" Type="iloveshawaModel.Store.Likes1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="review">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="like">
+        <PropertyRef Name="review_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_like_user1">
+    <End Role="user" Type="iloveshawaModel.Store.Users1" Multiplicity="1" />
+    <End Role="like" Type="iloveshawaModel.Store.Likes1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="like">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_shawarma_shop1">
+    <End Role="shawashop" Type="iloveshawaModel.Store.ShawaShops1" Multiplicity="1" />
+    <End Role="review" Type="iloveshawaModel.Store.Reviews1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shawashop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="review">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_user1">
+    <End Role="user" Type="iloveshawaModel.Store.Users1" Multiplicity="1" />
+    <End Role="review" Type="iloveshawaModel.Store.Reviews1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="review">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_score_shawarma_shop1">
+    <End Role="shawashop" Type="iloveshawaModel.Store.ShawaShops1" Multiplicity="1" />
+    <End Role="score" Type="iloveshawaModel.Store.Scores1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shawashop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="score">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_score_user1">
+    <End Role="user" Type="iloveshawaModel.Store.Users1" Multiplicity="1" />
+    <End Role="score" Type="iloveshawaModel.Store.Scores1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="score">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="iloveshawaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ILoveShawaContainer" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="images" EntityType="iloveshawaModel.image" />
-          <EntitySet Name="likes" EntityType="iloveshawaModel.like" />
-          <EntitySet Name="reviews" EntityType="iloveshawaModel.review" />
-          <EntitySet Name="scores" EntityType="iloveshawaModel.score" />
-          <EntitySet Name="shawashops" EntityType="iloveshawaModel.shawashop" />
-          <EntitySet Name="users" EntityType="iloveshawaModel.user" />
+          <EntitySet Name="Images1" EntityType="iloveshawaModel.Image" />
+          <EntitySet Name="Likes1" EntityType="iloveshawaModel.Like" />
+          <EntitySet Name="Reviews1" EntityType="iloveshawaModel.Review" />
+          <EntitySet Name="Scores1" EntityType="iloveshawaModel.Score" />
+          <EntitySet Name="ShawaShops1" EntityType="iloveshawaModel.ShawaShop" />
+          <EntitySet Name="Users1" EntityType="iloveshawaModel.User" />
           <AssociationSet Name="fk_image_shawarma_shop1" Association="iloveshawaModel.fk_image_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashops" />
-            <End Role="image" EntitySet="images" />
+            <End Role="shawashop" EntitySet="ShawaShops1" />
+            <End Role="image" EntitySet="Images1" />
           </AssociationSet>
           <AssociationSet Name="fk_like_review1" Association="iloveshawaModel.fk_like_review1">
-            <End Role="review" EntitySet="reviews" />
-            <End Role="like" EntitySet="likes" />
+            <End Role="review" EntitySet="Reviews1" />
+            <End Role="like" EntitySet="Likes1" />
           </AssociationSet>
           <AssociationSet Name="fk_like_user1" Association="iloveshawaModel.fk_like_user1">
-            <End Role="user" EntitySet="users" />
-            <End Role="like" EntitySet="likes" />
+            <End Role="user" EntitySet="Users1" />
+            <End Role="like" EntitySet="Likes1" />
           </AssociationSet>
           <AssociationSet Name="fk_review_shawarma_shop1" Association="iloveshawaModel.fk_review_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashops" />
-            <End Role="review" EntitySet="reviews" />
+            <End Role="shawashop" EntitySet="ShawaShops1" />
+            <End Role="review" EntitySet="Reviews1" />
           </AssociationSet>
           <AssociationSet Name="fk_review_user1" Association="iloveshawaModel.fk_review_user1">
-            <End Role="user" EntitySet="users" />
-            <End Role="review" EntitySet="reviews" />
+            <End Role="user" EntitySet="Users1" />
+            <End Role="review" EntitySet="Reviews1" />
           </AssociationSet>
           <AssociationSet Name="fk_score_shawarma_shop1" Association="iloveshawaModel.fk_score_shawarma_shop1">
-            <End Role="shawashop" EntitySet="shawashops" />
-            <End Role="score" EntitySet="scores" />
+            <End Role="shawashop" EntitySet="ShawaShops1" />
+            <End Role="score" EntitySet="Scores1" />
           </AssociationSet>
           <AssociationSet Name="fk_score_user1" Association="iloveshawaModel.fk_score_user1">
-            <End Role="user" EntitySet="users" />
-            <End Role="score" EntitySet="scores" />
+            <End Role="user" EntitySet="Users1" />
+            <End Role="score" EntitySet="Scores1" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="image">
+        <EntityType Name="Image">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -226,7 +226,7 @@
           <Property Name="shop_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="shawashop" Relationship="iloveshawaModel.fk_image_shawarma_shop1" FromRole="image" ToRole="shawashop" />
         </EntityType>
-        <EntityType Name="like">
+        <EntityType Name="Like">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -236,7 +236,7 @@
           <NavigationProperty Name="review" Relationship="iloveshawaModel.fk_like_review1" FromRole="like" ToRole="review" />
           <NavigationProperty Name="user" Relationship="iloveshawaModel.fk_like_user1" FromRole="like" ToRole="user" />
         </EntityType>
-        <EntityType Name="review">
+        <EntityType Name="Review">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -249,7 +249,7 @@
           <NavigationProperty Name="shawashop" Relationship="iloveshawaModel.fk_review_shawarma_shop1" FromRole="review" ToRole="shawashop" />
           <NavigationProperty Name="user" Relationship="iloveshawaModel.fk_review_user1" FromRole="review" ToRole="user" />
         </EntityType>
-        <EntityType Name="score">
+        <EntityType Name="Score">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -260,7 +260,7 @@
           <NavigationProperty Name="shawashop" Relationship="iloveshawaModel.fk_score_shawarma_shop1" FromRole="score" ToRole="shawashop" />
           <NavigationProperty Name="user" Relationship="iloveshawaModel.fk_score_user1" FromRole="score" ToRole="user" />
         </EntityType>
-        <EntityType Name="shawashop">
+        <EntityType Name="ShawaShop">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -271,7 +271,7 @@
           <NavigationProperty Name="reviews" Relationship="iloveshawaModel.fk_review_shawarma_shop1" FromRole="shawashop" ToRole="review" />
           <NavigationProperty Name="scores" Relationship="iloveshawaModel.fk_score_shawarma_shop1" FromRole="shawashop" ToRole="score" />
         </EntityType>
-        <EntityType Name="user">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -284,8 +284,8 @@
           <NavigationProperty Name="scores" Relationship="iloveshawaModel.fk_score_user1" FromRole="user" ToRole="score" />
         </EntityType>
         <Association Name="fk_image_shawarma_shop1">
-          <End Type="iloveshawaModel.shawashop" Role="shawashop" Multiplicity="1" />
-          <End Type="iloveshawaModel.image" Role="image" Multiplicity="*" />
+          <End Type="iloveshawaModel.ShawaShop" Role="shawashop" Multiplicity="1" />
+          <End Type="iloveshawaModel.Image" Role="image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shawashop">
               <PropertyRef Name="id" />
@@ -296,8 +296,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_like_review1">
-          <End Type="iloveshawaModel.review" Role="review" Multiplicity="1" />
-          <End Type="iloveshawaModel.like" Role="like" Multiplicity="*" />
+          <End Type="iloveshawaModel.Review" Role="review" Multiplicity="1" />
+          <End Type="iloveshawaModel.Like" Role="like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="review">
               <PropertyRef Name="id" />
@@ -308,8 +308,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_like_user1">
-          <End Type="iloveshawaModel.user" Role="user" Multiplicity="1" />
-          <End Type="iloveshawaModel.like" Role="like" Multiplicity="*" />
+          <End Type="iloveshawaModel.User" Role="user" Multiplicity="1" />
+          <End Type="iloveshawaModel.Like" Role="like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="user">
               <PropertyRef Name="id" />
@@ -320,8 +320,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_review_shawarma_shop1">
-          <End Type="iloveshawaModel.shawashop" Role="shawashop" Multiplicity="1" />
-          <End Type="iloveshawaModel.review" Role="review" Multiplicity="*" />
+          <End Type="iloveshawaModel.ShawaShop" Role="shawashop" Multiplicity="1" />
+          <End Type="iloveshawaModel.Review" Role="review" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shawashop">
               <PropertyRef Name="id" />
@@ -332,8 +332,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_review_user1">
-          <End Type="iloveshawaModel.user" Role="user" Multiplicity="1" />
-          <End Type="iloveshawaModel.review" Role="review" Multiplicity="*" />
+          <End Type="iloveshawaModel.User" Role="user" Multiplicity="1" />
+          <End Type="iloveshawaModel.Review" Role="review" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="user">
               <PropertyRef Name="id" />
@@ -344,8 +344,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_score_shawarma_shop1">
-          <End Type="iloveshawaModel.shawashop" Role="shawashop" Multiplicity="1" />
-          <End Type="iloveshawaModel.score" Role="score" Multiplicity="*" />
+          <End Type="iloveshawaModel.ShawaShop" Role="shawashop" Multiplicity="1" />
+          <End Type="iloveshawaModel.Score" Role="score" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shawashop">
               <PropertyRef Name="id" />
@@ -356,8 +356,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_score_user1">
-          <End Type="iloveshawaModel.user" Role="user" Multiplicity="1" />
-          <End Type="iloveshawaModel.score" Role="score" Multiplicity="*" />
+          <End Type="iloveshawaModel.User" Role="user" Multiplicity="1" />
+          <End Type="iloveshawaModel.Score" Role="score" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="user">
               <PropertyRef Name="id" />
@@ -373,65 +373,65 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="iloveshawaModelStoreContainer" CdmEntityContainer="ILoveShawaContainer">
-          <EntitySetMapping Name="images">
-            <EntityTypeMapping TypeName="iloveshawaModel.image">
-              <MappingFragment StoreEntitySet="image">
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="url" ColumnName="url" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="likes">
-            <EntityTypeMapping TypeName="iloveshawaModel.like">
-              <MappingFragment StoreEntitySet="like">
-                <ScalarProperty Name="review_id" ColumnName="review_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="reviews">
-            <EntityTypeMapping TypeName="iloveshawaModel.review">
-              <MappingFragment StoreEntitySet="review">
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="positive" ColumnName="positive" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="scores">
-            <EntityTypeMapping TypeName="iloveshawaModel.score">
-              <MappingFragment StoreEntitySet="score">
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="shawashops">
-            <EntityTypeMapping TypeName="iloveshawaModel.shawashop">
-              <MappingFragment StoreEntitySet="shawashop">
-                <ScalarProperty Name="coordinates" ColumnName="coordinates" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="iloveshawaModel.user">
-              <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="image_url" ColumnName="image_url" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+    <EntitySetMapping Name="Images1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Image)">
+        <MappingFragment StoreEntitySet="Images1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Likes1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Like)">
+        <MappingFragment StoreEntitySet="Likes1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="review_id" ColumnName="review_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Review)">
+        <MappingFragment StoreEntitySet="Reviews1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="positive" ColumnName="positive" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scores1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.Score)">
+        <MappingFragment StoreEntitySet="Scores1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShawaShops1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.ShawaShop)">
+        <MappingFragment StoreEntitySet="ShawaShops1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="coordinates" ColumnName="coordinates" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users1">
+      <EntityTypeMapping TypeName="IsTypeOf(iloveshawaModel.User)">
+        <MappingFragment StoreEntitySet="Users1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

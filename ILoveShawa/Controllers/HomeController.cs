@@ -10,10 +10,7 @@ namespace ILoveShawa.Controllers
     {
         public ActionResult Index()
         {
-            using (var gg = new Domain.ILoveShawaContainer())
-            {
-                return View(gg.shawashops);
-            }
+            return View();
         }
 
         public ActionResult About()
