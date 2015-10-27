@@ -87,7 +87,11 @@
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ImageRepository.cs" />
+    <Compile Include="Repository\LikeRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\ReviewRepository.cs" />
+    <Compile Include="Repository\ScoreRepository.cs" />
     <Compile Include="Repository\ShawaShopRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Review.cs">
