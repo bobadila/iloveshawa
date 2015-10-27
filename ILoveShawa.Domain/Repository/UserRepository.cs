@@ -7,29 +7,22 @@ using ILoveShawa.Domain.IRepository;
 
 namespace ILoveShawa.Domain.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : Repository<User>
     {
-        public void AddUser(User user)
+        public override void Delete(int id)
         {
             using (var container = new ILoveShawaContainer())
             {
-                container.Users.Add(user);
+                container.Users.RemoveRange(container.Users.Where(x => x.id == id));
+                container.SaveChanges();
             }
         }
 
-        public User GetUser(int id)
+        public override User Get(int id)
         {
             using (var container = new ILoveShawaContainer())
             {
                 return container.Users.FirstOrDefault(x => x.id == id);
-            }
-        }
-
-        public IEnumerable<User> GetUsers()
-        {
-            using (var container = new ILoveShawaContainer())
-            {
-                return container.Users.ToList();
             }
         }
     }

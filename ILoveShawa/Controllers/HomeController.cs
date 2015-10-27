@@ -1,19 +1,20 @@
 ﻿using System.Web.Mvc;
+using ILoveShawa.Domain;
 using ILoveShawa.Domain.IRepository;
 
 namespace ILoveShawa.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IShawaShopRepository shawaShopRepository;
-        public HomeController(IShawaShopRepository shawaShopRepository)
+        private readonly IRepository<ShawaShop> shawaShopRepository;
+        public HomeController(IRepository<ShawaShop> shawaShopRepository)
         {
             this.shawaShopRepository = shawaShopRepository;
         }
 
         public ActionResult Index()
         {
-            return View(shawaShopRepository.GetShawaShops());
+            return View(shawaShopRepository.GetAll());
         }
 
         public ActionResult About()

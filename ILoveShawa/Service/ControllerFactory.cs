@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ILoveShawa.Domain;
 using ILoveShawa.Domain.IRepository;
 using ILoveShawa.Domain.Repository;
 using Ninject;
@@ -24,8 +25,8 @@ namespace ILoveShawa.Service
 
         private void AddBings()
         {
-            kernel.Bind<IUserRepository>().To<UserRepository>();
-            kernel.Bind<IShawaShopRepository>().To<ShawaShopRepository>();
+            kernel.Bind<IRepository<ShawaShop>>().To<ShawaShopRepository>();
+            kernel.Bind<IRepository<User>>().To<UserRepository>();
         }
     }
 }

@@ -8,33 +8,18 @@ using System.Data.Entity;
 
 namespace ILoveShawa.Domain.Repository
 {
-    public class ShawaShopRepository : IShawaShopRepository
+    public class ShawaShopRepository : Repository<ShawaShop>
     {
-        public void AddShawaShop(ShawaShop shawaShop)
+        public override void Delete(int id)
         {
             using (var container = new ILoveShawaContainer())
             {
-                container.ShawaShops.Add(shawaShop);
+                container.ShawaShops.RemoveRange(container.ShawaShops.Where(x => x.id == id));
+                container.SaveChanges();
             }
         }
 
-        public IEnumerable<ShawaShop> GetShawaShops()
-        {
-            using (var container = new ILoveShawaContainer())
-            {
-                return container.ShawaShops.ToList();
-            }
-        }
-
-        public IEnumerable<ShawaShop> GetShawaShops(Predicate<ShawaShop> condition)
-        {
-            using (var container = new ILoveShawaContainer())
-            {
-                return container.ShawaShops.Where(x => condition(x)).ToList();
-            }
-        }
-
-        public ShawaShop GetShawaShop(int id)
+        public override ShawaShop Get(int id)
         {
             using (var container = new ILoveShawaContainer())
             {

@@ -80,12 +80,14 @@
     <Compile Include="Image.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="IRepository\IRepository.cs" />
     <Compile Include="IRepository\IShawaShopRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Like.cs">
       <DependentUpon>ILoveShawaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\ShawaShopRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Review.cs">
