@@ -9,12 +9,6 @@ namespace ILoveShawa.Domain.IRepository
 {
     public interface IShawaShopRepository
     {
-        ShawaShop GetShawaShop(int id);
-
-        void AddShawaShop(ShawaShop shawaShop);
-
-        IEnumerable<ShawaShop> GetShawaShops();
-
-        IEnumerable<ShawaShop> GetShawaShops(Predicate<ShawaShop> condition);
+        //Will be used, if will neecesary
     }
 }

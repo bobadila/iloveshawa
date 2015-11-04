@@ -8,10 +8,6 @@ namespace ILoveShawa.Domain.IRepository
 {
     public interface IUserRepository
     {
-        User GetUser(int id);
-
-        void AddUser(User user);
-
-        IEnumerable<User> GetUsers();
+        //Will be used, if will neecesary
     }
 }

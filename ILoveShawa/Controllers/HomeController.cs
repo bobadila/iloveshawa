@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using ILoveShawa.Domain;
 using ILoveShawa.Domain.IRepository;
 using System.Device.Location;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace ILoveShawa.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IShawaShopRepository shawaShopRepository;
         public class _ShawaShop
         {
             public readonly int Id;
@@ -29,8 +29,8 @@ namespace ILoveShawa.Controllers
         }
 
         private readonly List<_ShawaShop> testShawaShops;
-
-        public HomeController(IShawaShopRepository shawaShopRepository)
+        private readonly IRepository<ShawaShop> shawaShopRepository;
+        public HomeController(IRepository<ShawaShop> shawaShopRepository)
         {
             this.shawaShopRepository = shawaShopRepository;
             testShawaShops = new List<_ShawaShop>();
