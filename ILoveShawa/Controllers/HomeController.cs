@@ -34,8 +34,9 @@ namespace ILoveShawa.Controllers
         {
             this.shawaShopRepository = shawaShopRepository;
             testShawaShops = new List<_ShawaShop>();
+            Random random = new Random();
             testShawaShops.AddRange(Enumerable.Range(0, 20).Select(
-                i => new _ShawaShop($"Шавашоп {i}", new GeoCoordinate(30.41, 59.90))));
+                i => new _ShawaShop($"Шавашоп {i}", new GeoCoordinate(30.41 + (random.NextDouble() - 0.5) / 5, 59.90 + (random.NextDouble() - 0.5) / 5))));
         }
 
         public ActionResult Index()

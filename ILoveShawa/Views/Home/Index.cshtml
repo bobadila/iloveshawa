@@ -6,6 +6,12 @@
     ViewBag.Title = "Index";
     Random random = new Random();
 }
+
+@section scripts {
+    <script type="text/javascript">
+        shopsData = @Html.Raw(Json.Encode(Model.Select(shop => new { shop.Id, shop.Name, shop.Coord.Latitude, shop.Coord.Longitude }).ToList()));
+    </script>
+}
 <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <ul class="media-list shop-list">
@@ -13,7 +19,7 @@
             {
                 <li class="media shop-item" shop-id="@item.Id">
                     <div class="media-left">
-                        <img class="media-object" src="http://lorempixel.com/64/64/food/@random.Next(10)" alt="..." width=64px>
+                        <img class="media-object" src="http://lorempixel.com/64/64/food/@random.Next(10)" alt="...">
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">@item.Name</h4>

@@ -28,7 +28,8 @@ textarea {
     padding-top: 5px;
 }
 
-.shop-item:hover {
+.shop-item:hover, 
+.shop-item.selected {
     background-color: #fcf8e3;
 }
 
