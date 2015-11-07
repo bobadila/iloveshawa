@@ -1,15 +1,23 @@
-﻿@model IEnumerable<ILoveShawa.Controllers.HomeController._ShawaShop>
+﻿@model IEnumerable<HomeController._ShawaShop>
 @using System.Device.Location;
 @using ILoveShawa.Controllers
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.Fluid = "container-fluid";
     Random random = new Random();
 }
 
 @section scripts {
     <script type="text/javascript">
-        shopsData = @Html.Raw(Json.Encode(Model.Select(shop => new { shop.Id, shop.Name, shop.Coord.Latitude, shop.Coord.Longitude }).ToList()));
+        shopsData = @Html.Raw(Json.Encode(Model.Select(shop => new
+               {
+                   shop.Id,
+                   shop.Name,
+                   shop.Coord.Latitude,
+                   shop.Coord.Longitude,
+                   Url = @Url.Action("ShawaShop", new { id = shop.Id })
+               }).ToList()));
     </script>
 }
 <div class="row">
@@ -22,7 +30,9 @@
                         <img class="media-object" src="http://lorempixel.com/64/64/food/@random.Next(10)" alt="...">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">@item.Name</h4>
+                        <a href="@Url.Action("ShawaShop",new {id = item.Id})">
+                            <h4 class="media-heading">@item.Name</h4>
+                        </a>
                         <p>Не доказано, что система координат поддерживает интеграл Пуассона. Непрерывная функция, как следует из вышесказанного</p>
                         <p>@item.Coord.ToString()</p>
                     </div>

@@ -28,21 +28,32 @@ namespace ILoveShawa.Controllers
             }
         }
 
-        private readonly List<_ShawaShop> testShawaShops;
+        private static readonly List<_ShawaShop> testShawaShops = new List<_ShawaShop>();
+        static HomeController()
+        {
+            Random random = new Random();
+            testShawaShops.AddRange(Enumerable.Range(0, 20).Select(
+                i => new _ShawaShop($"Шавашоп {i}", new GeoCoordinate(30.41 + (random.NextDouble() - 0.5) / 5, 59.90 + (random.NextDouble() - 0.5) / 5))));
+        }
         private readonly IRepository<ShawaShop> shawaShopRepository;
         public HomeController(IRepository<ShawaShop> shawaShopRepository)
         {
             this.shawaShopRepository = shawaShopRepository;
-            testShawaShops = new List<_ShawaShop>();
-            Random random = new Random();
-            testShawaShops.AddRange(Enumerable.Range(0, 20).Select(
-                i => new _ShawaShop($"Шавашоп {i}", new GeoCoordinate(30.41 + (random.NextDouble() - 0.5) / 5, 59.90 + (random.NextDouble() - 0.5) / 5))));
         }
 
         public ActionResult Index()
         {
             var showindShops = testShawaShops.Take(10);
             return View(showindShops);
+        }
+
+        public ActionResult ShawaShop(int id = -1)
+        {
+            if (testShawaShops.Exists(shop => shop.Id == id))
+            {
+                return View(testShawaShops.First(shop => shop.Id == id));
+            }
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

@@ -29,8 +29,18 @@ textarea {
 }
 
 .shop-item:hover, 
+.shop-item.hover,
 .shop-item.selected {
     background-color: #fcf8e3;
+}
+
+.media.shop-item {
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+.media.shop-item:first-child {
+    padding-top: 0;
 }
 
 .shop-list {
