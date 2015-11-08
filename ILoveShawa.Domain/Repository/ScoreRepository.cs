@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ILoveShawa.Domain.Repository
 {
-    class ScoreRepository : Repository<Score>
+    public class ScoreRepository : Repository<Score>
     {
         public override void Delete(int id)
         {

@@ -27,6 +27,10 @@ namespace ILoveShawa.Service
         {
             kernel.Bind<IRepository<ShawaShop>>().To<ShawaShopRepository>();
             kernel.Bind<IRepository<User>>().To<UserRepository>();
+            kernel.Bind<IRepository<Image>>().To<ImageRepository>();
+            kernel.Bind<IRepository<Like>>().To<LikeRepository>();
+            kernel.Bind<IRepository<Review>>().To<ReviewRepository>();
+            kernel.Bind<IRepository<Score>>().To<ScoreRepository>();
         }
     }
 }
