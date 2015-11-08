@@ -25,17 +25,17 @@ DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reviews` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text` longtext NOT NULL,
-  `positive` tinyint(1) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `shop_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `IX_fk_review_shawarma_shop1` (`shop_id`),
-  KEY `IX_fk_review_user1` (`user_id`),
-  CONSTRAINT `fk_review_shawarma_shop1` FOREIGN KEY (`shop_id`) REFERENCES `shawashops` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_review_user1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Text` longtext NOT NULL,
+  `Positive` tinyint(1) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `ShopId` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Id` (`Id`),
+  KEY `IX_fk_review_shawarma_shop1` (`ShopId`),
+  KEY `IX_fk_review_user1` (`UserId`),
+  CONSTRAINT `fk_review_shawarma_shop1` FOREIGN KEY (`ShopId`) REFERENCES `shawashops` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_review_user1` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-08 22:10:08
+-- Dump completed on 2015-11-08 23:45:08

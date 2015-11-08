@@ -12,7 +12,7 @@ namespace ILoveShawa.Domain.Repository
         {
             using (var container = new ILoveShawaContainer())
             {
-                container.Images.RemoveRange(container.Images.Where(x => x.id == id));
+                container.Images.RemoveRange(container.Images.Where(x => x.Id == id));
                 container.SaveChanges();
             }
         }
@@ -21,7 +21,7 @@ namespace ILoveShawa.Domain.Repository
         {
             using (var container = new ILoveShawaContainer())
             {
-                return container.Images.FirstOrDefault(x => x.id == id);
+                return container.Images.FirstOrDefault(x => x.Id == id);
             }
         }
     }

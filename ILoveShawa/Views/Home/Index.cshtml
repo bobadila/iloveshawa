@@ -1,39 +1,46 @@
 ﻿@model IEnumerable<ILoveShawa.Domain.ShawaShop>
+@using ILoveShawa.Controllers
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.Fluid = "container-fluid";
+    Random random = new Random();
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.coordinates)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.coordinates)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+@section scripts {
+    <script type="text/javascript">
+        shopsData = @Html.Raw(Json.Encode(Model.Select(shop => new
+               {
+                   shop.Id,
+                   shop.Name,
+                   shop.Latitude,
+                   shop.Longitude,
+                   Url = @Url.Action("ShawaShop", new { id = shop.Id })
+               }).ToList()));
+    </script>
 }
-
-</table>
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <ul class="media-list shop-list">
+            @foreach (var item in Model)
+            {
+                <li class="media shop-item" shop-id="@item.Id">
+                    <div class="media-left">
+                        <img class="media-object" src="http://lorempixel.com/64/64/food/@random.Next(10)" alt="...">
+                    </div>
+                    <div class="media-body">
+                        <a href="@Url.Action("ShawaShop",new {id = item.Id})">
+                            <h4 class="media-heading">@item.Name</h4>
+                        </a>
+                        <p>Не доказано, что система координат поддерживает интеграл Пуассона. Непрерывная функция, как следует из вышесказанного</p>
+                        <p>@item.Latitude @item.Longitude</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="hidden-xs col-sm-8 col-md-8 col-lg-8">
+        <div id="index-map">
+        </div>
+    </div>
+</div>
