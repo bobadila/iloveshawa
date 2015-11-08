@@ -44,9 +44,9 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/08/2015 19:20:28
+-- Date Created: 11/08/2015 20:45:20
 
--- Generated from EDMX file: C:\Projects\VC#\ILoveShawa\ILoveShawa.Domain\ILoveShawaModel.edmx
+-- Generated from EDMX file: C:\Users\valey\Source\Repos\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
 -- Target version: 3.0.0.0
 
 -- --------------------------------------------------
@@ -99,7 +99,7 @@ SET foreign_key_checks = 1;
 
 
 CREATE TABLE `Images`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`url` varchar (45) NOT NULL, 
 	`shop_id` int NOT NULL);
 
@@ -110,7 +110,7 @@ ALTER TABLE `Images` ADD PRIMARY KEY (id);
 
 
 CREATE TABLE `Likes`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`user_id` int NOT NULL, 
 	`review_id` int NOT NULL);
 
@@ -121,7 +121,7 @@ ALTER TABLE `Likes` ADD PRIMARY KEY (id);
 
 
 CREATE TABLE `Reviews`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`text` longtext NOT NULL, 
 	`positive` bool NOT NULL, 
 	`user_id` int NOT NULL, 
@@ -134,7 +134,7 @@ ALTER TABLE `Reviews` ADD PRIMARY KEY (id);
 
 
 CREATE TABLE `Scores`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`value` int NOT NULL, 
 	`user_id` int NOT NULL, 
 	`shop_id` int NOT NULL);
@@ -146,10 +146,10 @@ ALTER TABLE `Scores` ADD PRIMARY KEY (id);
 
 
 CREATE TABLE `ShawaShops`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`name` varchar (45) NOT NULL, 
 	`latitude` double NOT NULL, 
-	`longtitude` double NOT NULL);
+	`longitude` double NOT NULL);
 
 ALTER TABLE `ShawaShops` ADD PRIMARY KEY (id);
 
@@ -158,7 +158,7 @@ ALTER TABLE `ShawaShops` ADD PRIMARY KEY (id);
 
 
 CREATE TABLE `Users`(
-	`id` int NOT NULL, 
+	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`name` varchar (45) NOT NULL, 
 	`image_url` varchar (45), 
 	`email` varchar (45) NOT NULL);
