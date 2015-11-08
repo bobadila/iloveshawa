@@ -44,7 +44,7 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 10/22/2015 23:03:13
+-- Date Created: 11/08/2015 19:20:28
 
 -- Generated from EDMX file: C:\Projects\VC#\ILoveShawa\ILoveShawa.Domain\ILoveShawaModel.edmx
 -- Target version: 3.0.0.0
@@ -148,7 +148,8 @@ ALTER TABLE `Scores` ADD PRIMARY KEY (id);
 CREATE TABLE `ShawaShops`(
 	`id` int NOT NULL, 
 	`name` varchar (45) NOT NULL, 
-	`coordinates` varchar (100) NOT NULL);
+	`latitude` double NOT NULL, 
+	`longtitude` double NOT NULL);
 
 ALTER TABLE `ShawaShops` ADD PRIMARY KEY (id);
 

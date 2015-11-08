@@ -82,7 +82,8 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="45" />
-    <Property Name="coordinates" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="latitude" Type="double" Nullable="false" />
+    <Property Name="longtitude" Type="double" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -266,10 +267,11 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="coordinates" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="images" Relationship="iloveshawaModel.fk_image_shawarma_shop1" FromRole="shawashop" ToRole="image" />
           <NavigationProperty Name="reviews" Relationship="iloveshawaModel.fk_review_shawarma_shop1" FromRole="shawashop" ToRole="review" />
           <NavigationProperty Name="scores" Relationship="iloveshawaModel.fk_score_shawarma_shop1" FromRole="shawashop" ToRole="score" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longtitude" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -417,7 +419,8 @@
         <MappingFragment StoreEntitySet="ShawaShops">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="coordinates" ColumnName="coordinates" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longtitude" ColumnName="longtitude" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
