@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `iloveshawa` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iloveshawa`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: iloveshawa
@@ -29,7 +31,7 @@ CREATE TABLE `users` (
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +40,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Goga1','http://goo.gl/1AYNfX','user1@gmail.com'),(2,'Goga2','http://goo.gl/1AYNfX','user2@gmail.com'),(3,'Goga3','http://goo.gl/1AYNfX','user3@gmail.com'),(4,'Goga4','http://goo.gl/1AYNfX','user4@gmail.com'),(5,'Nicola.Lore','http://goo.gl/v5dICV','nicola@lola.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-08 21:01:02
+-- Dump completed on 2015-11-08 22:10:09

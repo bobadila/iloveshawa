@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `iloveshawa` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iloveshawa`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: iloveshawa
@@ -30,7 +32,7 @@ CREATE TABLE `images` (
   UNIQUE KEY `id` (`id`),
   KEY `IX_fk_image_shawarma_shop1` (`shop_id`),
   CONSTRAINT `fk_image_shawarma_shop1` FOREIGN KEY (`shop_id`) REFERENCES `shawashops` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +41,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (1,'http://goo.gl/OB0mkQ',1),(2,'http://goo.gl/uVnQMj',1),(3,'http://goo.gl/qxrdfa',2),(4,'http://goo.gl/RbKkcJ',2),(5,'http://goo.gl/Zo50pn',3),(6,'http://goo.gl/CRR9tU',3),(7,'http://goo.gl/jQYJaF',4),(8,'http://goo.gl/BWmfki',4),(9,'http://goo.gl/UJHrHB',5),(10,'http://goo.gl/3SQmSK',5);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-08 21:01:03
+-- Dump completed on 2015-11-08 22:10:09
