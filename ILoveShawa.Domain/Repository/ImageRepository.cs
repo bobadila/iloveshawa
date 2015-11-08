@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ILoveShawa.Domain.IRepository;
-using System.Data.Entity;
 
 namespace ILoveShawa.Domain.Repository
 {
-    public class ShawaShopRepository : Repository<ShawaShop>
+    public class ImageRepository : Repository<Image>
     {
         public override void Delete(int id)
         {
             using (var container = new ILoveShawaContainer())
             {
-                container.ShawaShops.RemoveRange(container.ShawaShops.Where(x => x.id == id));
+                container.Images.RemoveRange(container.Images.Where(x => x.id == id));
                 container.SaveChanges();
             }
         }
 
-        public override ShawaShop Get(int id)
+        public override Image Get(int id)
         {
             using (var container = new ILoveShawaContainer())
             {
-                return container.ShawaShops.FirstOrDefault(x => x.id == id);
+                return container.Images.FirstOrDefault(x => x.id == id);
             }
         }
     }
