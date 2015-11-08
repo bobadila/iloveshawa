@@ -1,5 +1,4 @@
-﻿@model IEnumerable<HomeController._ShawaShop>
-@using System.Device.Location;
+﻿@model IEnumerable<ILoveShawa.Domain.ShawaShop>
 @using ILoveShawa.Controllers
 
 @{
@@ -14,8 +13,8 @@
                {
                    shop.Id,
                    shop.Name,
-                   shop.Coord.Latitude,
-                   shop.Coord.Longitude,
+                   shop.Latitude,
+                   shop.Longitude,
                    Url = @Url.Action("ShawaShop", new { id = shop.Id })
                }).ToList()));
     </script>
@@ -34,7 +33,7 @@
                             <h4 class="media-heading">@item.Name</h4>
                         </a>
                         <p>Не доказано, что система координат поддерживает интеграл Пуассона. Непрерывная функция, как следует из вышесказанного</p>
-                        <p>@item.Coord.ToString()</p>
+                        <p>@item.Latitude @item.Longitude</p>
                     </div>
                 </li>
             }

@@ -13,7 +13,7 @@ function initMap() {
         for (var i in shopsData) {
             var shop = shopsData[i];
             shopItems.dom[i] = $(".shop-item[shop-id=" + shop.Id + "]").first();
-            myPlacemark = new ymaps.Placemark([shop.Longitude, shop.Latitude],
+            myPlacemark = new ymaps.Placemark([shop.Latitude, shop.Longitude],
                 { iconContent: i, balloonContentHeader: "<a href=\"" + shop.Url + "\">" + shop.Name + "</a>" });
             shopItems.placemarks[i] = myPlacemark;
             myPlacemark.events

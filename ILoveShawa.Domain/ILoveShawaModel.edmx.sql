@@ -44,9 +44,9 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/08/2015 20:45:20
+-- Date Created: 11/08/2015 22:52:25
 
--- Generated from EDMX file: C:\Users\valey\Source\Repos\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
+-- Generated from EDMX file: C:\Users\UX32VD\Documents\GitHub\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
 -- Target version: 3.0.0.0
 
 -- --------------------------------------------------
@@ -99,71 +99,71 @@ SET foreign_key_checks = 1;
 
 
 CREATE TABLE `Images`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`url` varchar (45) NOT NULL, 
-	`shop_id` int NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`Url` varchar (45) NOT NULL, 
+	`ShopId` int NOT NULL);
 
-ALTER TABLE `Images` ADD PRIMARY KEY (id);
+ALTER TABLE `Images` ADD PRIMARY KEY (Id);
 
 
 
 
 
 CREATE TABLE `Likes`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`user_id` int NOT NULL, 
-	`review_id` int NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`UserId` int NOT NULL, 
+	`ReviewId` int NOT NULL);
 
-ALTER TABLE `Likes` ADD PRIMARY KEY (id);
+ALTER TABLE `Likes` ADD PRIMARY KEY (Id);
 
 
 
 
 
 CREATE TABLE `Reviews`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`text` longtext NOT NULL, 
-	`positive` bool NOT NULL, 
-	`user_id` int NOT NULL, 
-	`shop_id` int NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`Text` longtext NOT NULL, 
+	`Positive` bool NOT NULL, 
+	`UserId` int NOT NULL, 
+	`ShopId` int NOT NULL);
 
-ALTER TABLE `Reviews` ADD PRIMARY KEY (id);
+ALTER TABLE `Reviews` ADD PRIMARY KEY (Id);
 
 
 
 
 
 CREATE TABLE `Scores`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`value` int NOT NULL, 
-	`user_id` int NOT NULL, 
-	`shop_id` int NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`Value` int NOT NULL, 
+	`UserId` int NOT NULL, 
+	`ShopId` int NOT NULL);
 
-ALTER TABLE `Scores` ADD PRIMARY KEY (id);
+ALTER TABLE `Scores` ADD PRIMARY KEY (Id);
 
 
 
 
 
 CREATE TABLE `ShawaShops`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`name` varchar (45) NOT NULL, 
-	`latitude` double NOT NULL, 
-	`longitude` double NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`Name` varchar (45) NOT NULL, 
+	`Latitude` double NOT NULL, 
+	`Longitude` double NOT NULL);
 
-ALTER TABLE `ShawaShops` ADD PRIMARY KEY (id);
+ALTER TABLE `ShawaShops` ADD PRIMARY KEY (Id);
 
 
 
 
 
 CREATE TABLE `Users`(
-	`id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`name` varchar (45) NOT NULL, 
-	`image_url` varchar (45), 
-	`email` varchar (45) NOT NULL);
+	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
+	`Name` varchar (45) NOT NULL, 
+	`ImageUrl` varchar (45), 
+	`Email` varchar (45) NOT NULL);
 
-ALTER TABLE `Users` ADD PRIMARY KEY (id);
+ALTER TABLE `Users` ADD PRIMARY KEY (Id);
 
 
 
@@ -176,13 +176,13 @@ ALTER TABLE `Users` ADD PRIMARY KEY (id);
 -- --------------------------------------------------
 
 
--- Creating foreign key on `shop_id` in table 'Images'
+-- Creating foreign key on `ShopId` in table 'Images'
 
 ALTER TABLE `Images`
 ADD CONSTRAINT `fk_image_shawarma_shop1`
-    FOREIGN KEY (`shop_id`)
+    FOREIGN KEY (`ShopId`)
     REFERENCES `ShawaShops`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -190,17 +190,17 @@ ADD CONSTRAINT `fk_image_shawarma_shop1`
 
 CREATE INDEX `IX_fk_image_shawarma_shop1`
     ON `Images`
-    (`shop_id`);
+    (`ShopId`);
 
 
 
--- Creating foreign key on `review_id` in table 'Likes'
+-- Creating foreign key on `ReviewId` in table 'Likes'
 
 ALTER TABLE `Likes`
 ADD CONSTRAINT `fk_like_review1`
-    FOREIGN KEY (`review_id`)
+    FOREIGN KEY (`ReviewId`)
     REFERENCES `Reviews`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -208,17 +208,17 @@ ADD CONSTRAINT `fk_like_review1`
 
 CREATE INDEX `IX_fk_like_review1`
     ON `Likes`
-    (`review_id`);
+    (`ReviewId`);
 
 
 
--- Creating foreign key on `user_id` in table 'Likes'
+-- Creating foreign key on `UserId` in table 'Likes'
 
 ALTER TABLE `Likes`
 ADD CONSTRAINT `fk_like_user1`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`UserId`)
     REFERENCES `Users`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -226,17 +226,17 @@ ADD CONSTRAINT `fk_like_user1`
 
 CREATE INDEX `IX_fk_like_user1`
     ON `Likes`
-    (`user_id`);
+    (`UserId`);
 
 
 
--- Creating foreign key on `shop_id` in table 'Reviews'
+-- Creating foreign key on `ShopId` in table 'Reviews'
 
 ALTER TABLE `Reviews`
 ADD CONSTRAINT `fk_review_shawarma_shop1`
-    FOREIGN KEY (`shop_id`)
+    FOREIGN KEY (`ShopId`)
     REFERENCES `ShawaShops`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -244,17 +244,17 @@ ADD CONSTRAINT `fk_review_shawarma_shop1`
 
 CREATE INDEX `IX_fk_review_shawarma_shop1`
     ON `Reviews`
-    (`shop_id`);
+    (`ShopId`);
 
 
 
--- Creating foreign key on `user_id` in table 'Reviews'
+-- Creating foreign key on `UserId` in table 'Reviews'
 
 ALTER TABLE `Reviews`
 ADD CONSTRAINT `fk_review_user1`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`UserId`)
     REFERENCES `Users`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -262,17 +262,17 @@ ADD CONSTRAINT `fk_review_user1`
 
 CREATE INDEX `IX_fk_review_user1`
     ON `Reviews`
-    (`user_id`);
+    (`UserId`);
 
 
 
--- Creating foreign key on `shop_id` in table 'Scores'
+-- Creating foreign key on `ShopId` in table 'Scores'
 
 ALTER TABLE `Scores`
 ADD CONSTRAINT `fk_score_shawarma_shop1`
-    FOREIGN KEY (`shop_id`)
+    FOREIGN KEY (`ShopId`)
     REFERENCES `ShawaShops`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -280,17 +280,17 @@ ADD CONSTRAINT `fk_score_shawarma_shop1`
 
 CREATE INDEX `IX_fk_score_shawarma_shop1`
     ON `Scores`
-    (`shop_id`);
+    (`ShopId`);
 
 
 
--- Creating foreign key on `user_id` in table 'Scores'
+-- Creating foreign key on `UserId` in table 'Scores'
 
 ALTER TABLE `Scores`
 ADD CONSTRAINT `fk_score_user1`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`UserId`)
     REFERENCES `Users`
-        (`id`)
+        (`Id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
@@ -298,7 +298,7 @@ ADD CONSTRAINT `fk_score_user1`
 
 CREATE INDEX `IX_fk_score_user1`
     ON `Scores`
-    (`user_id`);
+    (`UserId`);
 
 
 

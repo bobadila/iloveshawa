@@ -12,28 +12,8 @@ namespace ILoveShawa.Controllers
 {
     public class HomeController : Controller
     {
-        public class _ShawaShop
-        {
-            public readonly int Id;
-            public readonly string Name;
-            public readonly GeoCoordinate Coord;
-
-            private static int maxId;
-
-            public _ShawaShop(string name, GeoCoordinate coord)
-            {
-                Id = maxId++;
-                Name = name;
-                Coord = coord;
-            }
-        }
-
-        private static readonly List<_ShawaShop> testShawaShops = new List<_ShawaShop>();
         static HomeController()
         {
-            Random random = new Random();
-            testShawaShops.AddRange(Enumerable.Range(0, 20).Select(
-                i => new _ShawaShop($"Шавашоп {i}", new GeoCoordinate(30.41 + (random.NextDouble() - 0.5) / 5, 59.90 + (random.NextDouble() - 0.5) / 5))));
         }
         private readonly IRepository<ShawaShop> shawaShopRepository;
         public HomeController(IRepository<ShawaShop> shawaShopRepository)
@@ -43,15 +23,16 @@ namespace ILoveShawa.Controllers
 
         public ActionResult Index()
         {
-            var showindShops = testShawaShops.Take(10);
+            var showindShops = shawaShopRepository.GetAll();
             return View(showindShops);
         }
 
         public ActionResult ShawaShop(int id = -1)
         {
-            if (testShawaShops.Exists(shop => shop.Id == id))
+            var shawaShop = shawaShopRepository.Get(id);
+            if (shawaShop != null)
             {
-                return View(testShawaShops.First(shop => shop.Id == id));
+                return View(shawaShop);
             }
             return RedirectToAction("Index");
         }

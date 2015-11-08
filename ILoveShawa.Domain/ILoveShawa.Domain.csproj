@@ -123,6 +123,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dumps\Dump20151108\iloveshawa_images.sql" />
+    <Content Include="Dumps\Dump20151108\iloveshawa_likes.sql" />
+    <Content Include="Dumps\Dump20151108\iloveshawa_reviews.sql" />
+    <Content Include="Dumps\Dump20151108\iloveshawa_scores.sql" />
+    <Content Include="Dumps\Dump20151108\iloveshawa_shawashops.sql" />
+    <Content Include="Dumps\Dump20151108\iloveshawa_users.sql" />
     <Content Include="ILoveShawaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ILoveShawaModel.edmx</DependentUpon>
