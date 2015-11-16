@@ -44,9 +44,9 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/15/2015 19:13:11
+-- Date Created: 11/16/2015 11:40:44
 
--- Generated from EDMX file: C:\Users\valey\Source\Repos\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
+-- Generated from EDMX file: C:\Users\Mikhail.Valeyko\GitHub\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
 -- Target version: 3.0.0.0
 
 -- --------------------------------------------------
@@ -100,7 +100,7 @@ SET foreign_key_checks = 1;
 
 CREATE TABLE `Images`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`Url` varchar (45) NOT NULL, 
+	`Url` varchar (200) NOT NULL, 
 	`ShopId` int NOT NULL);
 
 ALTER TABLE `Images` ADD PRIMARY KEY (Id);
@@ -149,7 +149,8 @@ CREATE TABLE `ShawaShops`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`Name` varchar (45) NOT NULL, 
 	`Latitude` double NOT NULL, 
-	`Longitude` double NOT NULL);
+	`Longitude` double NOT NULL, 
+	`ImageUrl` varchar (200));
 
 ALTER TABLE `ShawaShops` ADD PRIMARY KEY (Id);
 
@@ -160,7 +161,7 @@ ALTER TABLE `ShawaShops` ADD PRIMARY KEY (Id);
 CREATE TABLE `Users`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`Name` varchar (45) NOT NULL, 
-	`ImageUrl` varchar (45), 
+	`ImageUrl` varchar (200), 
 	`Email` varchar (45) NOT NULL, 
 	`Password` longtext NOT NULL);
 
