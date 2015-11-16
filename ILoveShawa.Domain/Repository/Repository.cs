@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using ILoveShawa.Domain.IRepository;
+using System.Linq.Expressions;
 
 namespace ILoveShawa.Domain.Repository
 {
@@ -16,8 +17,9 @@ namespace ILoveShawa.Domain.Repository
         public IEnumerable<T> Get(Predicate<T> condition)
         {
             using (var container = new ILoveShawaContainer())
-            {
-                return container.Set<T>().Where(x => condition(x)).ToList();
+            {         
+                // TODO: alksdnalksd
+                return container.Set<T>().ToList().Where(x => condition(x));
             }
         }
 

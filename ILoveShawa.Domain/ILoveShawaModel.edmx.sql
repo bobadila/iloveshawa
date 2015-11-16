@@ -44,9 +44,9 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 11/08/2015 22:52:25
+-- Date Created: 11/15/2015 19:13:11
 
--- Generated from EDMX file: C:\Users\UX32VD\Documents\GitHub\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
+-- Generated from EDMX file: C:\Users\valey\Source\Repos\iloveshawa\ILoveShawa.Domain\ILoveShawaModel.edmx
 -- Target version: 3.0.0.0
 
 -- --------------------------------------------------
@@ -161,7 +161,8 @@ CREATE TABLE `Users`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`Name` varchar (45) NOT NULL, 
 	`ImageUrl` varchar (45), 
-	`Email` varchar (45) NOT NULL);
+	`Email` varchar (45) NOT NULL, 
+	`Password` longtext NOT NULL);
 
 ALTER TABLE `Users` ADD PRIMARY KEY (Id);
 

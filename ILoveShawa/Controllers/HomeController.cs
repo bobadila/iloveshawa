@@ -21,6 +21,7 @@ namespace ILoveShawa.Controllers
             this.shawaShopRepository = shawaShopRepository;
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             var showindShops = shawaShopRepository.GetAll();

@@ -8,6 +8,6 @@ namespace ILoveShawa.Domain.IRepository
 {
     public interface IUserRepository
     {
-        //Will be used, if will neecesary
+        // User GetByEmail(string s);
     }
 }
