@@ -46,7 +46,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Url" Type="longtext" Nullable="false" />
     <Property Name="ShopId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Likes">
@@ -84,6 +84,8 @@
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
     <Property Name="Latitude" Type="double" Nullable="false" />
     <Property Name="Longitude" Type="double" Nullable="false" />
+    <Property Name="ImageUrl" Type="longtext" Nullable="true" />
+    <Property Name="Address" Type="longtext" Nullable="true" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -93,6 +95,7 @@
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
     <Property Name="ImageUrl" Type="varchar" Nullable="true" MaxLength="45" />
     <Property Name="Email" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <Association Name="fk_image_shawarma_shop1">
     <End Role="shawashop" Type="iloveshawaModel.Store.ShawaShops" Multiplicity="1" />
@@ -223,7 +226,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Url" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ShopId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ShawaShop" Relationship="iloveshawaModel.fk_image_shawarma_shop1" FromRole="image" ToRole="shawashop" />
         </EntityType>
@@ -272,6 +275,8 @@
           <NavigationProperty Name="Scores" Relationship="iloveshawaModel.fk_score_shawarma_shop1" FromRole="shawashop" ToRole="score" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="true" MaxLength="Max" />
+          <Property Name="Address" Type="String" Nullable="true" MaxLength="Max" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -284,6 +289,7 @@
           <NavigationProperty Name="Likes" Relationship="iloveshawaModel.fk_like_user1" FromRole="User" ToRole="like" />
           <NavigationProperty Name="Reviews" Relationship="iloveshawaModel.fk_review_user1" FromRole="User" ToRole="review" />
           <NavigationProperty Name="Scores" Relationship="iloveshawaModel.fk_score_user1" FromRole="User" ToRole="score" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" />
         </EntityType>
         <Association Name="fk_image_shawarma_shop1">
           <End Type="iloveshawaModel.ShawaShop" Role="shawashop" Multiplicity="1" />
@@ -421,6 +427,8 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -431,6 +439,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
