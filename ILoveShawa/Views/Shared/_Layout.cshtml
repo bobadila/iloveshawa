@@ -22,7 +22,14 @@
             </div>
         </div>
     </div>
-    <div class="@ViewBag.Fluid body-content">
+    <div class="@if (ViewBag.Fluid) 
+                {
+                    @:container-fluid
+                }
+                else
+                {
+                    @:container
+                } body-content">
         @RenderBody()
         <hr />
         <footer>
